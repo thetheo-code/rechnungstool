@@ -1,0 +1,21 @@
+{% comment %}
+    Menubar
+{% endcomment %}
+
+<header class="navBar">
+    <nav class="container">
+        <ul>
+            <li><strong>TheosRechnungen</strong></li>
+        </ul>
+        <ul>
+            {% for item in menu_items %}
+            <li>
+                <a href="{% url item.link %}"
+                {% if request.resolver_match.link == item.link %}aria-current="page"{% endif %}>
+                {{ item.label }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>
